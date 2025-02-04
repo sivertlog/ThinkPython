@@ -11,7 +11,13 @@ def print_right(word):
         print(" ", end="")
     print(word)
 
+def print_border():
+    for i in range(40):
+        print("*", end="")
+    print()
+
 right_word=input("enter a word: ")
+print_border()
 print_right(right_word)
 
 print()
@@ -22,6 +28,8 @@ def rectangle(l, h, w):
             print(l, end="")
         print()
 rectangle("H", 5, 4)
+
+print()
 
 #extra for fun
 def coolrectangle(l, la, h, w):
