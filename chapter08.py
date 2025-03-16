@@ -40,10 +40,12 @@ def head_hartman(in_file, num_lines, out_file=None):
 #3
 #wordle
 
-def load_words(word_list: list):
+def load_words(word_list: list, n=0):
     with open('words.txt', 'r') as words:
         for word in words:
-            if len(word.strip()) == 5: word_list.append(word.strip().upper())
+            if n == 0:
+                word_list.append(word.strip().upper())
+            elif len(word.strip()) == n: word_list.append(word.strip().upper())
 
 def valid_word(guess, word_list):
     if any(word == guess for word in word_list): return True
@@ -66,7 +68,7 @@ def check_word(guess, word):
 def wordle():
     word_list = []
     guess_list = []
-    load_words(word_list)
+    load_words(word_list, 5)
     word = 'HELLO'
     while True:
         guess = input("Please enter a 5 letter word: ").upper()
@@ -87,5 +89,8 @@ def wordle():
         else:
             print(guess, "is not a valid try")
 
+if __name__ == '__main__':
+    main()
 
-wordle()
+def main():
+    wordle()

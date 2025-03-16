@@ -1,3 +1,5 @@
-a = ['hello', 'forts']
-b = 'forts'
-print(b in a)
+a = ['hello', 'a', 'forts']
+print(a)
+b=sorted(a)
+print(a)
+print(b)
