@@ -1,3 +1,5 @@
+import re
+
 '''
 #1
 From Gemini:
@@ -89,8 +91,39 @@ def wordle():
         else:
             print(guess, "is not a valid try")
 
+def main():
+    wordle()
+
 if __name__ == '__main__':
     main()
 
-def main():
-    wordle()
+#5
+def find_pale():
+    #pale pales paled paleness pallor 256
+    pattern = r'.*(pale\w*|pallor).*'
+    count = 0
+    line=''
+    with open('TheCountofMnteCristo.txt', 'r', encoding='utf-8') as book:
+        for line in book:
+            result = re.match(pattern, line.strip().lower())
+            if result != None: count += 1
+
+    return count
+
+print(find_pale())
+
+
+def check_pale(sentence):
+   pattern = r'.*(pale\w*|pallor).*'
+   return True if re.match(pattern, sentence) else False
+
+def main_2():
+    with open('TheCountofMnteCristo.txt', 'r', encoding='utf-8') as file:
+        count = 0
+        for line in file:
+            if check_pale(line.strip()):
+                #print(line)
+                count += 1
+
+    print(f"Lines with some form of pale: {count}")
+main_2()

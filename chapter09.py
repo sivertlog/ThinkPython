@@ -1,4 +1,5 @@
 from chapter08 import load_words
+
 #2
 def is_anagram(word_1, word_2):
     return sorted(list(word_1.upper())) == sorted(list(word_2.upper()))
@@ -33,4 +34,4 @@ def total_length(string_list: list):
     for word in string_list: count += len(word)
     return count
 
-print(total_length(wl))
+#print(total_length(wl))
